@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {View } from 'react-native';
+import { Provider } from "react-redux";
+import configureStore from "./src/configStore";
 
 import AppNavigator from './src/router';
 
 export default function App() {
+    const store = configureStore();
   return (
-    <View>
-      <AppNavigator/>
-    </View>
+      <Provider store={store}>
+          <View>
+              <AppNavigator/>
+          </View>
+      </Provider>
   );
 }
 
